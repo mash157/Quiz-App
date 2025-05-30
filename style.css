@@ -1,0 +1,145 @@
+/* style.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+  display: block;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+button {
+  padding: 12px 24px;
+  margin-top: 20px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #303f9f;
+}
+
+#options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.option-card {
+  background-color: #e3f2fd;
+  padding: 15px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s, background-color 0.3s;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  animation: flipIn 0.6s ease;
+}
+
+.option-card:hover {
+  background-color: #bbdefb;
+  transform: scale(1.05);
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+#timer {
+  font-size: 20px;
+  color: #d32f2f;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#playerName {
+  width: 60%;
+  max-width: 400px;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#playerName:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flipIn {
+  from { transform: rotateY(90deg); opacity: 0; }
+  to { transform: rotateY(0deg); opacity: 1; }
+}
+
+#leaderboard-list li {
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
