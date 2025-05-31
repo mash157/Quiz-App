@@ -1,20 +1,49 @@
-<!-- index.html (Welcome Page) -->
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quiz App - Welcome</title>
+  <title>Quiz App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to the Quiz App !! </h1>
-    <input type="text" id="playerName" placeholder="Enter your name" required />
+  <div id="intro-box" class="container">
+    <h1>Welcome to the Quiz</h1>
 
+    <!-- Player Name Input -->
+    <input type="text" id="playerName" placeholder="Enter your name" />
 
+    <!-- Category Selection -->
+    <div class="select-container">
+      <label for="category">Select Category:</label>
+      <select id="category">
+        <option value="computer">Computer</option>
+        <option value="science">Science</option>
+        <option value="math">Math</option>
+        <option value="dataStructures">Data Structures</option>
+      </select>
+    </div>
+
+    <!-- Timer Selection -->
+    <div class="select-container">
+      <label for="timer">Select Timer (Seconds):</label>
+      <select id="timer">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+
+    <!-- Start Quiz Button -->
     <button onclick="startQuiz()">Start Quiz</button>
-  </div>
+
+    <!-- Dark Mode Toggle Button -->
+     <div class="theme-toggle">
+  <label class="switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+
   <script src="script.js"></script>
 </body>
 </html>

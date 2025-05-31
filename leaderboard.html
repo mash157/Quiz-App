@@ -1,4 +1,3 @@
-<!-- leaderboard.html (Leaderboard Page) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +8,16 @@
 </head>
 <body>
   <div class="container">
-    <h1>Leaderboard</h1>
-    <ul id="leaderboard-list"></ul>
-    <button id="reset-btn">Reset Leaderboard</button>
-
-    <a href="index.html">Go to Home</a>
+    <h1>LeaderBoard</h1>
+    <ul id="leaderboard-list">
+      <!-- Leaderboard entries will be dynamically inserted here -->
+    </ul>
+    <button onclick="resetLeaderboard()">Reset Leaderboard</button>
+    <button onclick="goHome()">Return to Home Page</button>
   </div>
+  
   <script src="leaderboard.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>

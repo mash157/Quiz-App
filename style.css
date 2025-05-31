@@ -143,3 +143,819 @@ a {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+
+
+/* ... Your existing styles above ... */
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px 15px;
+  }
+
+  #playerName {
+    width: 90%;
+    font-size: 17px;
+    padding: 12px;
+  }
+
+  select {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .option-card {
+    font-size: 15px;
+    padding: 12px 20px;
+    min-width: 100%;
+  }
+
+  #options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+select {
+  width: 60%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px auto 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+
+
+
+
+/* style.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+  display: block;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+button {
+  padding: 12px 24px;
+  margin-top: 20px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #303f9f;
+}
+
+#options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.option-card {
+  background-color: #e3f2fd;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s, background-color 0.3s;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  text-align: center;
+  animation: flipIn 0.6s ease;
+  word-wrap: break-word;
+}
+
+.option-card:hover {
+  background-color: #bbdefb;
+  transform: scale(1.05);
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+#timer {
+  font-size: 20px;
+  color: #d32f2f;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#playerName {
+  width: 60%;
+  max-width: 400px;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#playerName:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Select Dropdowns */
+select {
+  width: 60%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px auto 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flipIn {
+  from { transform: rotateY(90deg); opacity: 0; }
+  to { transform: rotateY(0deg); opacity: 1; }
+}
+
+#leaderboard-list li {
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mobile & Tablet Fixes */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px 15px;
+  }
+
+  #playerName {
+    width: 90%;
+    font-size: 17px;
+    padding: 12px;
+  }
+
+  select {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .option-card {
+    font-size: 15px;
+    padding: 12px 18px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+/* Base styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Page transition effect */
+.page {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+  display: block;
+}
+
+/* Container styling */
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  animation: fadeIn 0.6s ease-in-out both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Buttons */
+button {
+  padding: 12px 24px;
+  margin-top: 20px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #303f9f;
+}
+
+/* Options layout */
+#options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.option-card {
+  background-color: #e3f2fd;
+  padding: 15px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s, background-color 0.3s;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  animation: flipIn 0.6s ease;
+}
+
+.option-card:hover {
+  background-color: #bbdefb;
+  transform: scale(1.05);
+}
+
+/* Text and links */
+h1, h2 {
+  color: #2c3e50;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+/* Timer display */
+#timer {
+  font-size: 20px;
+  color: #d32f2f;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Input styling */
+#playerName {
+  width: 60%;
+  max-width: 400px;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#playerName:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Select dropdowns */
+select {
+  width: 60%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px auto 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flipIn {
+  from { transform: rotateY(90deg); opacity: 0; }
+  to { transform: rotateY(0deg); opacity: 1; }
+}
+
+#leaderboard-list li {
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ✅ Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  #playerName,
+  select,
+  button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  #timer {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .question-text {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  #options {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .option-card {
+    width: 100%;
+    max-width: 300px;
+    font-size: 15px;
+    padding: 12px 16px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+
+
+
+
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 1;
+  display: block;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+button {
+  padding: 12px 24px;
+  margin-top: 20px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #303f9f;
+}
+
+#options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.option-card {
+  background-color: #e3f2fd;
+  padding: 15px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s, background-color 0.3s;
+  font-size: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  max-width: 100%;
+  text-align: center;
+  flex: 1 1 40%;
+}
+
+.option-card:hover {
+  background-color: #bbdefb;
+  transform: scale(1.05);
+}
+
+h1, h2 {
+  color: #2c3e50;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: bold;
+}
+
+#timer {
+  font-size: 20px;
+  color: #d32f2f;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#playerName {
+  width: 60%;
+  max-width: 400px;
+  padding: 14px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#playerName:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Dropdowns */
+select {
+  width: 60%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px auto 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flipIn {
+  from { transform: rotateY(90deg); opacity: 0; }
+  to { transform: rotateY(0deg); opacity: 1; }
+}
+
+#leaderboard-list li {
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px 15px;
+  }
+
+  #playerName {
+    width: 90%;
+    font-size: 17px;
+    padding: 12px;
+  }
+
+  select {
+    width: 90%;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  #options {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .option-card {
+    width: 90%;
+    max-width: 100%;
+    font-size: 16px;
+    padding: 14px 20px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* Theme Toggle Switch */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; width: 20px;
+  left: 4px; bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #3f51b5;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark .container {
+  background-color: rgba(33, 33, 33, 0.95);
+}
+
+body.dark button {
+  background-color: #2196f3;
+}
+
+body.dark button:hover {
+  background-color: #1976d2;
+}
+
+body.dark .option-card {
+  background-color: #263238;
+  color: #fff;
+}
+
+body.dark .option-card:hover {
+  background-color: #37474f;
+}
+
+body.dark select,
+body.dark #playerName {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-color: #444;
+}
+
+body.dark h1, 
+body.dark h2,
+body.dark p,
+body.dark label {
+  color: #ffffff;
+}
+/* Normal color for the timer select box in intro page */
+#timerSelect {
+  width: 60%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  margin: 10px auto 20px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+  background-color: #fff; /* Normal background color */
+  color: #333; /* Normal text color */
+}
+
+#timerSelect:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+}

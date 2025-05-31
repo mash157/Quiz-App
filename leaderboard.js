@@ -1,16 +1,22 @@
-// leaderboard.js
-const leaderboardList = document.getElementById("leaderboard-list");
-const resetButton = document.getElementById("reset-btn");
+function loadLeaderboard() {
+  const leaderboardList = document.getElementById("leaderboard-list");
+  const scores = JSON.parse(localStorage.getItem("leaderboardScores")) || [];
+  leaderboardList.innerHTML = '';
+  scores.sort((a, b) => b.score - a.score);  // Sort by score in descending order
+  scores.forEach(entry => {
+    const li = document.createElement("li");
+    li.textContent = `${entry.name} - ${entry.score} - ${entry.category} - ${entry.time}`;
+    leaderboardList.appendChild(li);
+  });
+}
 
-let scores = JSON.parse(localStorage.getItem("leaderboardScores")) || [];
-
-scores.slice().reverse().forEach(entry => {
-  const li = document.createElement("li");
-  li.textContent = `${entry.name} — ${entry.time} — Score: ${entry.score}`;
-  leaderboardList.appendChild(li);
-});
-
-resetButton.onclick = () => {
+function resetLeaderboard() {
   localStorage.removeItem("leaderboardScores");
-  leaderboardList.innerHTML = "<li>Leaderboard has been reset.</li>";
-};
+  loadLeaderboard();
+}
+
+function goHome() {
+  window.location.href = "index.html";
+}
+
+window.onload = loadLeaderboard;
